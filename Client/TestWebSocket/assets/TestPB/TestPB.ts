@@ -20,22 +20,15 @@ export default class TestPB extends cc.Component {
     start() {
         console.log("go!");
         this.ws = new WebSocket("ws://192.168.2.31:8083");
-        this.ws.binaryType="arraybuffer";
-        
+        // this.ws.binaryType="arraybuffer";        
         this.ws.onopen = this.onOpen.bind(this);
         this.ws.onmessage = function (event) {
             console.log("client rcv:" + event.data);
         }
-
         this.ws.onclose = function (event) {
-
         }.bind(this);
-
         this.ws.onerror = function (event) {
-
         }
-
-
     }
 
 
@@ -47,12 +40,10 @@ export default class TestPB extends cc.Component {
         u.userName = "toms";
 
         let encoded = proto.user.encode(u).finish();
-
         this.sendData(encoded);
 
         let xxx = proto.user.decode(encoded);
         console.log("嘿嘿：" + xxx.userName);
-
     }
     private sendData(data) {
         this.ws.send(data);

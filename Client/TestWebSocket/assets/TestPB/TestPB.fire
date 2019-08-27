@@ -53,7 +53,8 @@
       "w": 1
     },
     "groupIndex": 0,
-    "_id": "55zzwRNm5F1YWRu0CCuoyW"
+    "autoReleaseAssets": false,
+    "_id": "fdb13154-0a15-4429-8aeb-5b3c51c2b17a"
   },
   {
     "__type__": "cc.Node",

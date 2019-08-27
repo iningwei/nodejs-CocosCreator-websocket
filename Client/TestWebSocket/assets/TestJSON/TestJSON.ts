@@ -15,9 +15,7 @@ export default class TestJSON extends cc.Component {
     private ws: WebSocket;
     start() {
         console.log("go!");
-        this.ws = new WebSocket("ws://192.168.2.31:8083");
-        this.ws.binaryType = "arraybuffer";
-
+        this.ws = new WebSocket("ws://192.168.2.31:8083");        
         this.ws.onopen = this.onOpen.bind(this);
         this.ws.onmessage = function (event) {
             console.log("client rcv:" + event.data);
