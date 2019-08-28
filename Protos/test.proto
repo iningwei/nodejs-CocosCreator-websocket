@@ -1,0 +1,9 @@
+message User{
+	required int32 UserId=1;
+	required string UserName=2;
+}
+
+message RoomData{
+	required int32 RoomId=1;
+	repeated User users=2;
+}
