@@ -11,7 +11,14 @@
             "program": "${workspaceFolder}\\dist\\index.js",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
-            ]
+            ],
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"   //注册
+              ],
+            "args": [
+                "${workspaceFolder}/src/index.ts"  // 入口文件
+              ]
         }
     ]
 }
