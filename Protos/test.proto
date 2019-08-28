@@ -1,9 +1,28 @@
-message User{
-	required int32 UserId=1;
-	required string UserName=2;
+message Role{
+	required string roleName=1;	
 }
 
-message RoomData{
-	required int32 RoomId=1;
-	repeated User users=2;
+message ChatData{
+	required string content=1;
+	required string dateTime=2;//时间戳
+	required Role sender=3;//发送者
+}
+
+//msgID=10001
+message LoginReq{
+	required Role role=1;
+}
+//msgID=10002
+message LoginRes{
+	required int32 result=1;//0为失败，1为成功
+}
+
+//msgID=10011
+message ChatReq{
+	required ChatData chatData=1;
+}
+//msgID=10012
+message ChatRes{
+	required int32 result=1;//0为失败，1为成功
+	required ChatData chatData=2;
 }
