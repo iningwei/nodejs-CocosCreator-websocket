@@ -1,8 +1,6 @@
 import * as WebSocket from "ws"
 import proto = require("./pb/proto");
 
-
-
 const server = new WebSocket.Server({ port: 8083 });
 server.on("listening", () => {
 	console.log("服务器启动完毕！开始侦听");
@@ -39,10 +37,6 @@ server.on("connection", function connection(ws, req) {
 
 });
 
-
-
-
-
 function unSerialize(arrayBuf: ArrayBuffer): { msgId: number, data: any } {
 	let dv = new DataView(arrayBuf);
 	//获得消息号
@@ -63,10 +57,7 @@ function unSerialize(arrayBuf: ArrayBuffer): { msgId: number, data: any } {
 	console.log("rcvMsg: " + id + ",  " + JSON.stringify(result.toJSON()));
 
 	return { msgId: id, data: result };
-
 }
-
-
 
 function serialize(msgId: number, bodyArray: Uint8Array): ArrayBuffer {
 	let totalLen = 4;
@@ -83,13 +74,8 @@ function serialize(msgId: number, bodyArray: Uint8Array): ArrayBuffer {
 		dataView.setUint8(offset, element);
 		offset += 1;
 	}
-
 	return dataView.buffer;
-
 }
-
-
-
 
 //Buffer转ArrayBuffer
 function toArrayBuffer(buf) {
